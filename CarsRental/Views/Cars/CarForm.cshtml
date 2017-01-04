@@ -1,0 +1,34 @@
+﻿@model CarsRental.ViewModels.CarFormViewModel
+@{
+    ViewBag.Title = "CarForm";
+}
+
+<h2>@Model.Title</h2>
+
+@using (Html.BeginForm("Save", "Cars"))
+{
+    <div class="form-group">
+        @Html.LabelFor(c => c.Car.Name)
+        @Html.TextBoxFor(c => c.Car.Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Car.ReleaseDate)
+        @Html.TextBoxFor(c => c.Car.ReleaseDate, "{0:d MMM yyy}", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Car.DateAdded)
+        @Html.TextBoxFor(c => c.Car.DateAdded ,"{0:d MMM yyy}", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Car.CarBrandId)
+        @Html.DropDownListFor(c=>c.Car.CarBrandId,new SelectList(Model.CarBrand,"Id","Name"),"Select Car Model",new {@class="form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Car.NumberInStock)
+        @Html.TextBoxFor(c => c.Car.NumberInStock, new { @class = "form-control" })
+    </div>
+
+    @Html.HiddenFor(c=>c.Car.Id)
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+

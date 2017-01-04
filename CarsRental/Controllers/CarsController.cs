@@ -1,4 +1,5 @@
 ﻿using CarsRental.Models;
+using CarsRental.ViewModels;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
@@ -42,6 +43,54 @@ namespace CarsRental.Controllers
                 return HttpNotFound();
             }
             return View(car);
+        }
+
+        public ActionResult New()
+        {
+            var carBrands = _context.CarBrands.ToList();
+            var viewModel = new CarFormViewModel
+            {
+                CarBrand = carBrands
+            };
+
+            return View("CarForm",viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Save(Car car)
+        {
+            if (car.Id == 0)
+            {
+                _context.Cars.Add(car);
+            }
+            else
+            {
+                var carInDb = _context.Cars.Single(c => c.Id == car.Id);
+                carInDb.Name = car.Name;
+                carInDb.CarBrandId = car.CarBrandId;
+                carInDb.NumberInStock = car.NumberInStock;
+                carInDb.ReleaseDate = car.ReleaseDate;
+            }
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Cars");
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var car = _context.Cars.SingleOrDefault(c => c.Id == id);
+            if (car == null)
+            {
+                return HttpNotFound();
+            }
+            var viewModel = new CarFormViewModel
+            {
+                Car = car,
+                CarBrand = _context.CarBrands.ToList()
+            };
+
+            return View("CarForm", viewModel);
         }
     }
 }
