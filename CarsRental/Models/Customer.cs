@@ -11,11 +11,11 @@ namespace CarsRental.Models
         public string Name { get; set; }
         public bool IsSubscribedToNewsletter { get; set; }
         [Display(Name = "Date of Birth")]
+        [Min20YearsIfAMember]
         public DateTime? Birthdate { get; set; }
         public MembershipType MembershipType { get; set; }
 
         [Display(Name = "Membership Type")]
-        [Min20YearsIfAMember]
         public byte MembershipTypeId { get; set; }
     }
 }
