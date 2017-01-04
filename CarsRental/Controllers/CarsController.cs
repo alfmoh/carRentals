@@ -50,6 +50,7 @@ namespace CarsRental.Controllers
             var carBrands = _context.CarBrands.ToList();
             var viewModel = new CarFormViewModel
             {
+                
                 CarBrand = carBrands
             };
 
@@ -57,8 +58,19 @@ namespace CarsRental.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Car car)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new CarFormViewModel(car)
+                {    
+                    CarBrand = _context.CarBrands.ToList()
+                };
+
+                return View("CarForm", viewModel);
+            }
+
             if (car.Id == 0)
             {
                 _context.Cars.Add(car);
@@ -84,9 +96,8 @@ namespace CarsRental.Controllers
             {
                 return HttpNotFound();
             }
-            var viewModel = new CarFormViewModel
-            {
-                Car = car,
+            var viewModel = new CarFormViewModel(car)
+            {               
                 CarBrand = _context.CarBrands.ToList()
             };
 

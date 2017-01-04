@@ -16,12 +16,13 @@ namespace CarsRental.Models
         public DateTime DateAdded { get; set; }
 
         [Display(Name = "Number In Stock")]
+        [Range(1, 20)]
         public int NumberInStock { get; set; }
 
         public CarBrand CarBrand { get; set; }
 
         [Display(Name = "Car Model")]
-        [Required]
+        [Required]       
         public byte CarBrandId { get; set; }
     }
 }
