@@ -1,5 +1,4 @@
-﻿using CarsRental.Models;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace CarsRental.Dtos
@@ -14,9 +13,7 @@ namespace CarsRental.Dtos
 
         public bool IsSubscribedToNewsletter { get; set; }
         
-        [Min20YearsIfAMember]
         public DateTime? Birthdate { get; set; }
-
         
         public byte MembershipTypeId { get; set; }
     }
