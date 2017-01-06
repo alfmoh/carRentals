@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace CarsRental.Controllers
 {
+
     public class CarsController : Controller
     {
         private ApplicationDbContext _context;
