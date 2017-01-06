@@ -25,8 +25,10 @@ namespace CarsRental.Controllers
         public ActionResult Index()
         {
             var car = _context.Cars.Include(c => c.CarBrand).ToList();
+            if (User.IsInRole(RoleName.CanManageCars))
+                return View("List",car);
 
-            return View(car);
+            return View("ReadOnlyList");
         }
 
 
@@ -40,6 +42,7 @@ namespace CarsRental.Controllers
             return View(car);
         }
 
+        [Authorize(Roles = RoleName.CanManageCars)]
         public ActionResult New()
         {
             var carBrands = _context.CarBrands.ToList();
@@ -54,6 +57,7 @@ namespace CarsRental.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = RoleName.CanManageCars)]
         public ActionResult Save(Car car)
         {
             if (!ModelState.IsValid)
@@ -84,6 +88,7 @@ namespace CarsRental.Controllers
             return RedirectToAction("Index", "Cars");
         }
 
+        [Authorize(Roles = RoleName.CanManageCars)]
         public ActionResult Edit(int id)
         {
             var car = _context.Cars.SingleOrDefault(c => c.Id == id);
