@@ -28,12 +28,6 @@ namespace CarsRental.Controllers
             return View(car);
         }
 
-        
-        public ActionResult ByReleaseDate(int year, int month)
-        {
-            return Content(year + "/ "+ month);
-        }
-
 
         public ActionResult Details(int id)
         {
