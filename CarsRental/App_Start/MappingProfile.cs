@@ -11,9 +11,11 @@ namespace CarsRental.App_Start
             //Domain to Dto
             Mapper.CreateMap<Customer, CustomerDto>();
             Mapper.CreateMap<Car, CarDto>();
+            Mapper.CreateMap<MembershipType, MembershipTypeDto>();
 
             Mapper.CreateMap<CustomerDto, Customer>().ForMember(c=>c.Id, opt=>opt.Ignore());          
             Mapper.CreateMap<CarDto, Car>().ForMember(c=>c.Id,opt=>opt.Ignore());
+            Mapper.CreateMap<MembershipTypeDto, MembershipType>();
         }
     }
 }
