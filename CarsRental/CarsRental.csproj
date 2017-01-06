@@ -222,6 +222,7 @@
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Dtos\CarBrandDto.cs" />
     <Compile Include="Dtos\CarDto.cs" />
     <Compile Include="Dtos\CustomerDto.cs" />
     <Compile Include="Dtos\MembershipTypeDto.cs" />

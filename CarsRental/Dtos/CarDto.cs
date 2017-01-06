@@ -17,6 +17,7 @@ namespace CarsRental.Dtos
         [Range(1, 20)]
         public int NumberInStock { get; set; }
 
+        public CarBrandDto CarBrand { get; set; }
 
         [Required]
         public byte CarBrandId { get; set; }

@@ -2,6 +2,7 @@
 using CarsRental.Dtos;
 using CarsRental.Models;
 using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Http;
 
@@ -19,7 +20,9 @@ namespace CarsRental.Controllers.Api
         //GET /api/cars
         public IHttpActionResult GetCars()
         {
-            var carDtos = _context.Cars.ToList().Select(Mapper.Map<Car, CarDto>);
+            var carDtos = _context.Cars.Include(c => c.CarBrand)
+                .ToList()
+                .Select(Mapper.Map<Car, CarDto>);
             return Ok(carDtos);
         }
 
