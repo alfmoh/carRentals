@@ -1,11 +1,10 @@
-﻿using System;
+﻿using CarsRental.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.Google;
 using Owin;
-using CarsRental.Models;
+using System;
 
 namespace CarsRental
 {
@@ -54,9 +53,9 @@ namespace CarsRental
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1804609349793316",
+               appSecret: "2822b27ca694652ec567bd60687c9a69");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
