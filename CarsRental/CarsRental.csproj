@@ -238,6 +238,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\CarsController.cs" />
     <Compile Include="Controllers\Api\CustomersController.cs" />
+    <Compile Include="Controllers\Api\NewRentalsController.cs" />
     <Compile Include="Controllers\CarsController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -246,6 +247,7 @@
     <Compile Include="Dtos\CarDto.cs" />
     <Compile Include="Dtos\CustomerDto.cs" />
     <Compile Include="Dtos\MembershipTypeDto.cs" />
+    <Compile Include="Dtos\NewRentalDto.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -314,6 +316,14 @@
     <Compile Include="Migrations\201701070857152_PhoneFieldAdded.Designer.cs">
       <DependentUpon>201701070857152_PhoneFieldAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701071845181_RentalModelCreated.cs" />
+    <Compile Include="Migrations\201701071845181_RentalModelCreated.Designer.cs">
+      <DependentUpon>201701071845181_RentalModelCreated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701071907362_AddNumberAvailable.cs" />
+    <Compile Include="Migrations\201701071907362_AddNumberAvailable.Designer.cs">
+      <DependentUpon>201701071907362_AddNumberAvailable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ExternalLoginConfirmationViewModel.cs" />
@@ -329,6 +339,7 @@
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Min20YearsIfAMember.cs" />
     <Compile Include="Models\RegisterViewModel.cs" />
+    <Compile Include="Models\Rental.cs" />
     <Compile Include="Models\ResetPasswordViewModel.cs" />
     <Compile Include="Models\RoleName.cs" />
     <Compile Include="Models\SendCodeViewModel.cs" />
@@ -656,6 +667,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701070857152_PhoneFieldAdded.resx">
       <DependentUpon>201701070857152_PhoneFieldAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701071845181_RentalModelCreated.resx">
+      <DependentUpon>201701071845181_RentalModelCreated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701071907362_AddNumberAvailable.resx">
+      <DependentUpon>201701071907362_AddNumberAvailable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -24,5 +24,7 @@ namespace CarsRental.Models
         [Display(Name = "Car Model")]
         [Required]       
         public byte CarBrandId { get; set; }
+
+        public byte NumberAvailable { get; set; }
     }
 }
