@@ -2,6 +2,7 @@
 using CarsRental.Dtos;
 using CarsRental.Models;
 using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Http;
@@ -18,12 +19,18 @@ namespace CarsRental.Controllers.Api
         }
 
         //GET /api/cars
-        public IHttpActionResult GetCars()
+        public IEnumerable<CarDto> GetCars(string query = null)
         {
-            var carDtos = _context.Cars.Include(c => c.CarBrand)
+            var carsQuery = _context.Cars
+                .Include(m => m.CarBrand)
+                .Where(m => m.NumberAvailable > 0);
+
+            if (!string.IsNullOrWhiteSpace(query))
+                carsQuery = carsQuery.Where(m => m.Name.Contains(query));
+
+            return carsQuery
                 .ToList()
                 .Select(Mapper.Map<Car, CarDto>);
-            return Ok(carDtos);
         }
 
         //GET /api/cars/1       
