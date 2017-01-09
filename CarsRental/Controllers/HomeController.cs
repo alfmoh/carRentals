@@ -10,18 +10,5 @@ namespace CarsRental.Controllers
             return RedirectToAction("Index", "Cars");
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "This is a Car Rentals application";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Our Contacts";
-
-            return View();
-        }
     }
 }
