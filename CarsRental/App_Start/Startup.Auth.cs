@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Owin;
 using System;
 using System.Configuration;
+using CarsRental.App_Data;
 
 namespace CarsRental
 {

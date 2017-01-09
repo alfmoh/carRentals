@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace CarsRental.Models
+namespace CarsRental.App_Data
 {
     public class ApplicationUser : IdentityUser
     {
