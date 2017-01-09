@@ -5,6 +5,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
 using System;
+using System.Configuration;
 
 namespace CarsRental
 {
@@ -54,8 +55,8 @@ namespace CarsRental
             //   consumerSecret: "");
 
             app.UseFacebookAuthentication(
-               appId: "1804609349793316",
-               appSecret: "2822b27ca694652ec567bd60687c9a69");
+               appId: ConfigurationManager.AppSettings["FacebookAppId"],
+               appSecret: ConfigurationManager.AppSettings["FacebookAppSecret"]);
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{

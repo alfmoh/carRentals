@@ -22,6 +22,7 @@ namespace CarsRental.Controllers
         }
 
         // GET: Cars
+        [AllowAnonymous]
         public ActionResult Index()
         {
             var car = _context.Cars.Include(c => c.CarBrand).ToList();
